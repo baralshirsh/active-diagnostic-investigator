@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VerificationResult",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "agent_execution_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NEEDS_MORE_EVIDENCE",
+        "REJECT_CONCLUSION",
+        "INCONCLUSIVE"
+      ]
+    },
+    "leading_hypothesis_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "grounding_ok": {
+      "type": "boolean"
+    },
+    "contradictions_resolved": {
+      "type": "boolean"
+    },
+    "evidence_independence_ok": {
+      "type": "boolean"
+    },
+    "budget_ok": {
+      "type": "boolean"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "remaining_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendation": {
+      "type": "string",
+      "enum": [
+        "CONCLUDE",
+        "CONTINUE",
+        "ABSTAIN"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "investigation_id",
+    "agent_execution_id",
+    "decision",
+    "grounding_ok",
+    "contradictions_resolved",
+    "evidence_independence_ok",
+    "budget_ok",
+    "reasons",
+    "remaining_questions",
+    "recommendation"
+  ],
+  "additionalProperties": false
+}

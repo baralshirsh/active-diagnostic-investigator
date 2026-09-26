@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EventEnvelope",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "correlation_id": {
+      "type": "string"
+    },
+    "causation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "producer": {
+      "type": "string"
+    },
+    "trace": {
+      "type": "object",
+      "properties": {
+        "traceparent": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tracestate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "traceparent",
+        "tracestate"
+      ],
+      "additionalProperties": false
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "event_id",
+    "event_type",
+    "schema_version",
+    "occurred_at",
+    "tenant_id",
+    "site_id",
+    "investigation_id",
+    "correlation_id",
+    "producer",
+    "trace",
+    "payload"
+  ],
+  "additionalProperties": false
+}

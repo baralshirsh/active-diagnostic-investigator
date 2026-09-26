@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hypothesis",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "code": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "WEAKENED",
+        "REJECTED",
+        "LEADING",
+        "CONFIRMED",
+        "UNKNOWN"
+      ]
+    },
+    "prior_weight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "current_weight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "supporting_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "contradicting_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "unresolved_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "investigation_id",
+    "code",
+    "title",
+    "description",
+    "status",
+    "prior_weight",
+    "current_weight",
+    "supporting_evidence_ids",
+    "contradicting_evidence_ids",
+    "unresolved_questions",
+    "version",
+    "updated_at"
+  ],
+  "additionalProperties": false
+}

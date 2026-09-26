@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PolicyEvaluationResult",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "decision_id": {
+      "type": "string"
+    },
+    "allow": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "obligations": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "allow",
+    "reason",
+    "obligations"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HypothesisAgentInput",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "subsystem": {
+      "type": "string"
+    },
+    "remaining_query_budget": {
+      "type": "number",
+      "minimum": 0
+    },
+    "initial_observations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "existing_hypotheses": {
+      "type": "array",
+      "items": {
+        "$ref": "../domain/hypothesis.v1.json"
+      }
+    },
+    "new_evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "../domain/evidence.v1.json"
+      }
+    },
+    "process_context": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "investigation_id",
+    "subsystem",
+    "remaining_query_budget",
+    "initial_observations",
+    "existing_hypotheses",
+    "new_evidence",
+    "process_context"
+  ],
+  "additionalProperties": false
+}

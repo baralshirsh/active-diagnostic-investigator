@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "diagnostic_action_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "tool_execution_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "telemetry",
+        "baseline_comparison",
+        "derived_metric",
+        "process_knowledge",
+        "historical_pattern"
+      ]
+    },
+    "observation": {
+      "type": "string"
+    },
+    "signal_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "time_window": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "value_summary": {
+      "type": "object"
+    },
+    "supports_hypothesis_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "contradicts_hypothesis_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "reliability": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    },
+    "diagnostic_relevance": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    },
+    "query_cost": {
+      "type": "number",
+      "minimum": 0
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "investigation_id",
+    "diagnostic_action_id",
+    "tool_execution_id",
+    "source_type",
+    "observation",
+    "signal_refs",
+    "value_summary",
+    "supports_hypothesis_ids",
+    "contradicts_hypothesis_ids",
+    "reliability",
+    "diagnostic_relevance",
+    "query_cost",
+    "created_at"
+  ],
+  "additionalProperties": false
+}

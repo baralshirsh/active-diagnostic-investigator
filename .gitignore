@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtual environments
+.venv/
+venv/
+env/
+
+# python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDEs/editors
+.idea/
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environments / secrects
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+
+# Loacal Runtime Data
+data/rwa/
+data/processed/
+data/private/
+runtime/
+
+# Docker / local volumes
+.volumes/
+
+# Temporary fiels
+*.temp
+*.bak
+*.swp
+
+# Evaluation/private benchmark mappings
+evaluation/private/

@@ -1,0 +1,14 @@
+[project]
+name = "active-diagnostic-investigator"
+version = "0.1.0"
+description = "A local-first, cloud-ready multi-agent system for active industrial fault diagnosis under partial observability."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["uv_build>=0.12.2,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+package = true

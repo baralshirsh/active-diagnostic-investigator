@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvidenceAgentOutput",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "agent_execution_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "tool_execution": {
+      "type": "object"
+    },
+    "evidence": {
+      "$ref": "../domain/evidence.v1.json"
+    }
+  },
+  "required": [
+    "schema_version",
+    "agent_execution_id",
+    "tool_execution",
+    "evidence"
+  ],
+  "additionalProperties": false
+}

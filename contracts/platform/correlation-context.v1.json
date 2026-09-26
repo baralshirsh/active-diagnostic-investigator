@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CorrelationContext",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "correlation_id": {
+      "type": "string"
+    },
+    "causation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "traceparent": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tracestate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "actor": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "investigation_id",
+    "correlation_id",
+    "actor"
+  ],
+  "additionalProperties": false
+}

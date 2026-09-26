@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ErrorEnvelope",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "code": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "CONTRACT_VALIDATION",
+        "POLICY_DENIED",
+        "BUDGET_EXCEEDED",
+        "TOOL_UNAVAILABLE",
+        "TOOL_INVALID_RESULT",
+        "MODEL_UNAVAILABLE",
+        "MODEL_INVALID_OUTPUT",
+        "PERSISTENCE_CONFLICT",
+        "MESSAGING_FAILURE",
+        "SECURITY_VIOLATION",
+        "INTERNAL"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "retryable": {
+      "type": "boolean"
+    },
+    "correlation_id": {
+      "type": "string"
+    },
+    "investigation_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "component": {
+      "type": "string"
+    },
+    "safe_details": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "code",
+    "category",
+    "message",
+    "retryable",
+    "correlation_id",
+    "component",
+    "safe_details"
+  ],
+  "additionalProperties": false
+}

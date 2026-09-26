@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HypothesisAgentOutput",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "agent_execution_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "$ref": "../domain/hypothesis.v1.json"
+      }
+    },
+    "leading_hypothesis_code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sufficient_for_diagnosis": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "agent_execution_id",
+    "hypotheses",
+    "sufficient_for_diagnosis"
+  ],
+  "additionalProperties": false
+}

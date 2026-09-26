@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Investigation",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "scenario_public_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "asset_id": {
+      "type": "string"
+    },
+    "subsystem": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "CREATED",
+        "HYPOTHESIS_PENDING",
+        "PLANNING",
+        "ACTION_POLICY_CHECK",
+        "EVIDENCE_PENDING",
+        "HYPOTHESIS_UPDATE_PENDING",
+        "VERIFYING",
+        "DIAGNOSED",
+        "INCONCLUSIVE",
+        "SAFE_ABORT"
+      ]
+    },
+    "query_budget": {
+      "type": "number",
+      "minimum": 0
+    },
+    "query_cost_used": {
+      "type": "number",
+      "minimum": 0
+    },
+    "tool_call_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_tool_calls": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "scenario_public_id",
+    "tenant_id",
+    "site_id",
+    "asset_id",
+    "subsystem",
+    "state",
+    "query_budget",
+    "query_cost_used",
+    "tool_call_count",
+    "max_tool_calls",
+    "version",
+    "created_at",
+    "updated_at"
+  ],
+  "additionalProperties": false
+}

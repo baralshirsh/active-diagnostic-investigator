@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GetProcessRelationshipsRequest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "component_or_signal": {
+      "type": "string"
+    },
+    "relationship_depth": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    }
+  },
+  "required": [
+    "schema_version",
+    "component_or_signal",
+    "relationship_depth"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DiagnosticConclusion",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DIAGNOSED",
+        "INCONCLUSIVE",
+        "SAFE_ABORT"
+      ]
+    },
+    "leading_hypothesis_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uuid"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hypothesis_strength": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "supporting_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "contradicting_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "alternative_hypothesis_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "remaining_uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_next_check": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "query_cost_used": {
+      "type": "number",
+      "minimum": 0
+    },
+    "tool_call_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "human_confirmation_required": {
+      "type": "boolean",
+      "const": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "investigation_id",
+    "status",
+    "supporting_evidence_ids",
+    "contradicting_evidence_ids",
+    "alternative_hypothesis_ids",
+    "remaining_uncertainties",
+    "query_cost_used",
+    "tool_call_count",
+    "human_confirmation_required"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PolicyEvaluationRequest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "principal": {
+      "type": "object"
+    },
+    "investigation": {
+      "type": "object"
+    },
+    "action": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "principal",
+    "investigation",
+    "action"
+  ],
+  "additionalProperties": false
+}

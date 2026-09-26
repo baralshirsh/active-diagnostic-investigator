@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AnalyzeSignalRequest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "signal_id": {
+      "type": "string"
+    },
+    "window": {
+      "type": "object",
+      "properties": {
+        "relative_start_samples": {
+          "type": "integer"
+        },
+        "relative_end_samples": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "relative_start_samples",
+        "relative_end_samples"
+      ],
+      "additionalProperties": false
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "mean",
+          "std",
+          "variance",
+          "min",
+          "max",
+          "slope",
+          "rate_of_change",
+          "deviation_from_baseline",
+          "rolling_variance",
+          "persistence",
+          "correlation"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "investigation_id",
+    "signal_id",
+    "window",
+    "metrics"
+  ],
+  "additionalProperties": false
+}

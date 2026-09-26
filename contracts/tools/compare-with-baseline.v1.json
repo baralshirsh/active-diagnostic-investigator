@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CompareWithBaselineRequest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "signal_id": {
+      "type": "string"
+    },
+    "window": {
+      "type": "object",
+      "properties": {
+        "relative_start_samples": {
+          "type": "integer"
+        },
+        "relative_end_samples": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "relative_start_samples",
+        "relative_end_samples"
+      ],
+      "additionalProperties": false
+    },
+    "baseline_profile": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "investigation_id",
+    "signal_id",
+    "window",
+    "baseline_profile"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VerificationAgentInput",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "query_budget": {
+      "type": "number",
+      "minimum": 0
+    },
+    "query_cost_used": {
+      "type": "number",
+      "minimum": 0
+    },
+    "tool_call_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_tool_calls": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "$ref": "../domain/hypothesis.v1.json"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "../domain/evidence.v1.json"
+      }
+    },
+    "hard_stop_rules": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "investigation_id",
+    "query_budget",
+    "query_cost_used",
+    "tool_call_count",
+    "max_tool_calls",
+    "hypotheses",
+    "evidence",
+    "hard_stop_rules"
+  ],
+  "additionalProperties": false
+}

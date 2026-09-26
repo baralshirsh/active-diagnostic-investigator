@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ModelInvocationMetadata",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "agent_name": {
+      "type": "string"
+    },
+    "model_provider": {
+      "type": "string"
+    },
+    "model_name": {
+      "type": "string"
+    },
+    "prompt_version": {
+      "type": "string"
+    },
+    "input_hash": {
+      "type": "string"
+    },
+    "output_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "input_tokens": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "output_tokens": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "attempt": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "agent_name",
+    "model_provider",
+    "model_name",
+    "prompt_version",
+    "input_hash",
+    "attempt"
+  ],
+  "additionalProperties": false
+}

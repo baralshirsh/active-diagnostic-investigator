@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlannerAgentInput",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "remaining_query_budget": {
+      "type": "number",
+      "minimum": 0
+    },
+    "remaining_tool_calls": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "$ref": "../domain/hypothesis.v1.json"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "../domain/evidence.v1.json"
+      }
+    },
+    "available_tools": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "policy_constraints": {
+      "type": "object"
+    },
+    "recent_actions": {
+      "type": "array",
+      "items": {
+        "$ref": "../domain/diagnostic-action.v1.json"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "investigation_id",
+    "remaining_query_budget",
+    "remaining_tool_calls",
+    "hypotheses",
+    "evidence",
+    "available_tools",
+    "policy_constraints",
+    "recent_actions"
+  ],
+  "additionalProperties": false
+}

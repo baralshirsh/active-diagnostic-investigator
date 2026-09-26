@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvidenceAgentInput",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "remaining_query_budget": {
+      "type": "number",
+      "minimum": 0
+    },
+    "approved_action": {
+      "$ref": "../domain/diagnostic-action.v1.json"
+    },
+    "policy_decision_id": {
+      "type": "string"
+    },
+    "maximum_cost": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "investigation_id",
+    "remaining_query_budget",
+    "approved_action",
+    "policy_decision_id",
+    "maximum_cost"
+  ],
+  "additionalProperties": false
+}

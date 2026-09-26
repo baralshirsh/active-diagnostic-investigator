@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DlqEvent",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "original_event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "original_subject": {
+      "type": "string"
+    },
+    "consumer_name": {
+      "type": "string"
+    },
+    "attempts": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "error_type": {
+      "type": "string"
+    },
+    "error_summary": {
+      "type": "string"
+    },
+    "investigation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "last_traceparent": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "original_event_id",
+    "original_subject",
+    "consumer_name",
+    "attempts",
+    "error_type",
+    "error_summary",
+    "investigation_id"
+  ],
+  "additionalProperties": false
+}

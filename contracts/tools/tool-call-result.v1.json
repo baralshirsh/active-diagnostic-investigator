@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ToolCallResult",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "tool_name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "COMPLETED",
+        "FAILED"
+      ]
+    },
+    "action_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "result_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "structured_content": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "error": {
+      "anyOf": [
+        {
+          "$ref": "../domain/error.v1.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "tool_name",
+    "status",
+    "action_id"
+  ],
+  "additionalProperties": false
+}
