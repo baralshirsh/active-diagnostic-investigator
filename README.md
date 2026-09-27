@@ -175,34 +175,36 @@ The domain contracts must not depend on LangGraph, Ollama, NATS, MCP SDK classes
 
 ```text
 active-diagnostic-investigator/
-├── apps/
-│   ├── api/
-│   └── coordinator/
-├── agents/
-│   ├── hypothesis/
-│   ├── planner/
-│   ├── evidence/
-│   └── verifier/
-├── domain/
-│   ├── investigations/
-│   ├── hypotheses/
-│   ├── evidence/
-│   ├── actions/
-│   └── events/
-├── platform/
-│   ├── messaging/
-│   ├── model_gateway/
-│   ├── policy/
-│   ├── observability/
-│   └── persistence/
-├── tools/
-│   └── mcp_tep/
-├── adapters/
-│   └── tep/
-├── evaluation/
-│   ├── scenarios/
-│   ├── baselines/
-│   └── scoring/
+├── src/
+│   └── active_diagnostic_investigator/
+│       ├── apps/
+│       │   ├── api/
+│       │   └── coordinator/
+│       ├── agents/
+│       │   ├── hypothesis/
+│       │   ├── planner/
+│       │   ├── evidence/
+│       │   └── verifier/
+│       ├── domain/
+│       │   ├── investigations/
+│       │   ├── hypotheses/
+│       │   ├── evidence/
+│       │   ├── actions/
+│       │   └── events/
+│       ├── platform/
+│       │   ├── messaging/
+│       │   ├── model_gateway/
+│       │   ├── policy/
+│       │   ├── observability/
+│       │   └── persistence/
+│       ├── tools/
+│       │   └── mcp_tep/
+│       ├── adapters/
+│       │   └── tep/
+│       └── evaluation/
+│           ├── scenarios/
+│           ├── baselines/
+│           └── scoring/
 ├── contracts/
 │   ├── domain/
 │   ├── agents/
@@ -223,7 +225,9 @@ active-diagnostic-investigator/
 ├── README.md
 ├── Architecture.md
 ├── Contracts.md
-└── Plan.md
+├── Plan.md
+├── pyproject.toml
+└── uv.lock
 ```
 
 ## Local V1 target
